@@ -39,8 +39,8 @@ public class Service extends Stack {
                 .assignPublicIp(true)
                 .taskImageOptions(
                         ApplicationLoadBalancedTaskImageOptions.builder()
-                                .containerName("AWS_V2-0-0")
-                                .image(ContainerImage.fromRegistry("matias42/aws_project_course:2.0.0"))
+                                .containerName("AWS_V3-0-0")
+                                .image(ContainerImage.fromRegistry("matias42/aws_project_course:3.0.0"))
                                 .containerPort(8080)
                                 .logDriver(LogDriver.awsLogs(
                                         AwsLogDriverProps.builder()
