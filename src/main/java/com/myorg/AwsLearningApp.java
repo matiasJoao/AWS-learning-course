@@ -13,8 +13,14 @@ public class AwsLearningApp {
         ClusterStack clusterStack = new ClusterStack(app, "ClusterTest1", vpcStack.getVpcStack());
         clusterStack.addDependency(vpcStack);
 
-        Service service = new Service(app, "Service01", clusterStack.getCluster());
+        RdsStack rdsStack = new RdsStack(app, "Rds01", vpcStack.getVpcStack());
+        rdsStack.addDependency(vpcStack);
+
+        Service service = new Service(app, "Service1", clusterStack.getCluster());
         service.addDependency(clusterStack);
+        service.addDependency(rdsStack);
+
+
         app.synth();
     }
 }
